@@ -4,10 +4,10 @@ import com.company.Brand.Brand;
 
 public class Mobile extends Product {
 
-    private Memory memory;
-    private double screensize = 6.1;
+    private Memory memory=Memory.GB8;
+    private double screenSize = 6.1;
     private int battery = 4000;
-    private String ram = "6MB";
+    private Memory ram = Memory.GB8;
     private Color color;
 
     public Mobile(int id, Brand brand, String name, double unitPrice, double discount, int stock) {
@@ -22,12 +22,12 @@ public class Mobile extends Product {
         this.memory = memory;
     }
 
-    public double getScreensize() {
-        return screensize;
+    public double getScreenSize() {
+        return screenSize;
     }
 
-    public void setScreensize(double screensize) {
-        this.screensize = screensize;
+    public void setScreenSize(double screenSize) {
+        this.screenSize = screenSize;
     }
 
     public int getBattery() {
@@ -38,11 +38,11 @@ public class Mobile extends Product {
         this.battery = battery;
     }
 
-    public String getRam() {
+    public Memory getRam() {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(Memory ram) {
         this.ram = ram;
     }
 
@@ -52,5 +52,12 @@ public class Mobile extends Product {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        String leftAlignFormat = "| %-2d | %-12s | %-8.2f TL | %-8s | %-8s GB | %-8.1f | %-5s GB |";
+        return String.format(leftAlignFormat, this.id, this.name, this.unitPrice,
+                this.brand.getName(), this.memory.getValue(), this.screenSize, this.ram.getValue());
     }
 }

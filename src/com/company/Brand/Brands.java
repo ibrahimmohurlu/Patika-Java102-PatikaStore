@@ -20,7 +20,7 @@ public class Brands {
 
     public static void printBrands() {
         for (Integer key : brandsData.keySet()) {
-            System.out.println(brandsData.get(key).getName());
+            System.out.println(key + "-" + brandsData.get(key).getName());
         }
     }
 
